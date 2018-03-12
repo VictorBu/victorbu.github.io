@@ -24,7 +24,7 @@ favicon: img/favicon.ico
 ## RSS requires a plugin to take effect | 使用 RSS 需先安装对应插件
 ## https://github.com/hexojs/hexo-generator-feed
 subnav:
-  # github: "https://github.com/victorbu"
+  github: "https://github.com/victorbu"
   mail: "mailto:victorbu.xx@gmail.com"
   # zhihu: "#"
   # weibo: "#"

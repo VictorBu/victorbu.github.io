@@ -27,13 +27,13 @@ tags: [Samba, CentOS 7, Linux, Windows]
 1. 执行命令，备份配置文件：`cp /etc/samba/smb.conf /etc/samba/smb.conf.orig`
 1. 执行命令，修改配置文件：`vi /etc/samba/smb.conf`：
 
-    1. 修改 workgroup 为 Windows 的工作组：
+    + 修改 workgroup 为 Windows 的工作组：
 
         ```
         workgroup = 你的工作组名称
         ```
     
-    1. 添加或修改下列配置：
+    + 添加或修改下列配置：
         ```
         [Secure]
         comment = Secure File Server Share
