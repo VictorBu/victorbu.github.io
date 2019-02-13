@@ -6,7 +6,6 @@ categories: [IT]
 tags: [WindowsAPICodePack-Shell]
 ---
 
-
 > 在整理照片/视频时想根据实际拍摄时间重命名文件，但 System.IO.FileInfo 只能获取到文件的创建时间或最后写入时间，不符合要求，遂寻找解决方案
 
 # 方案 1: System.Drawing
