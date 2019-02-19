@@ -89,7 +89,8 @@ tags: [海岛, 香港, 攻略]
 [113]: http://victorblog.nos-eastchina1.126.net/1001/%E9%9B%AA%E5%BE%841.jpg "雪径"
 [114]: http://victorblog.nos-eastchina1.126.net/1001/%E9%9B%AA%E5%BE%842.jpg "雪径"
 [115]: http://victorblog.nos-eastchina1.126.net/1001/%E9%9B%AA%E5%BE%843.jpg "雪径"
-
+[116]: https://victorblog.nos-eastchina1.126.net/1001/%E5%AD%94%E6%B4%9E1.jpg "孔洞"
+[117]: https://victorblog.nos-eastchina1.126.net/1001/%E5%AD%94%E6%B4%9E2.jpg "孔洞"
 [118]: http://victorblog.nos-eastchina1.126.net/1001/%E5%8D%AB%E6%98%9F%E5%9C%B0%E5%9B%BE1.jpg "卫星地图"
 [119]: http://victorblog.nos-eastchina1.126.net/1001/%E5%8D%AB%E6%98%9F%E5%9C%B0%E5%9B%BE2.jpg "卫星地图"
 [120]: http://victorblog.nos-eastchina1.126.net/1001/%E7%A9%BA%E4%B8%AD%E8%8A%B1%E5%9B%AD.jpg "空中花园"
