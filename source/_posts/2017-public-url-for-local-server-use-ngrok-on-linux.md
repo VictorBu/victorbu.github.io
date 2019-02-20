@@ -53,6 +53,12 @@ nohup ./ngrok http 端口 > /dev/null &
 + \> /dev/null: /dev/null 表示空设备，> /dev/null 即不记录日志
 + &: 指在后台运行
 
+查看外网访问地址：
+
+```
+curl http://127.0.0.1:4040/api/tunnels
+```
+
 
 > 参考：
 
