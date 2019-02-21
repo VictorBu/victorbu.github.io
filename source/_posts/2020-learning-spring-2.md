@@ -1,7 +1,7 @@
 ---
 title: 学习 Spring (二) Spring 注入
-date: 2019-02-21 21:00:00
-updated: 2019-02-21 21:00:00
+date: 2019-02-21 22:00:00
+updated: 2019-02-22 21:00:00
 categories: [IT]
 tags: [Java, Spring]
 ---
