@@ -10,7 +10,7 @@ tags: [Java, Spring]
 
 # Spring 是什么
 
-Spring 是一个轻量级的IoC(控制反转)和AOP(面向切面)的容器框架
+Spring 是一个轻量级的 IoC (控制反转)和 AOP (面向切面)的容器框架
 
 ![](https://victorblog.nos-eastchina1.126.net/2019/spring-framework-runtime.png)
 
