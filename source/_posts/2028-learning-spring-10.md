@@ -1,5 +1,5 @@
 ---
-title: 学习 Spring (十) 注解之 @Bean, @ImportResource, @Value
+title: 学习 Spring (十) 注解之 @Bean, @ImportResource, @Value, 基于泛型的自动装配
 date: 2019-03-01 07:00:00
 updated: 2019-03-01 07:00:00
 categories: [IT]
@@ -49,7 +49,7 @@ public class StringStore implements Store<String> {
 @Configuration
 public class StoreConfig {
 
-	@Bean(initMethod = "init", destroyMethod = "destroy")// 如果没有指定 name，那么name 为 方法的名称
+	@Bean(initMethod = "init", destroyMethod = "destroy")// 如果没有指定 name，那么name 为方法的名称
 	public StringStore stringStore() {
 		return new StringStore();
 	}
@@ -121,7 +121,7 @@ public class AppConfig{
 }
 ```
 
-# 示例：
+## 示例：
 
 添加类：
 
@@ -199,6 +199,61 @@ public class StoreConfig {
 public void testMyDriverManager() {
 	MyDriverManager manager = super.getBean("myDriverManager");
 	System.out.println(manager.getClass().getName());
+}
+```
+
+# 基于泛型的自动装配
+
+## 示例
+
+新建类：
+
+```
+public class IntegerStore implements Store<Integer> {
+
+}
+```
+
+修改类：
+
+```
+@Configuration
+@ImportResource("classpath:config.xml")
+public class StoreConfig {
+
+	@Autowired
+	@Qualifier(value="stringStore")
+	private Store<String> s1;
+
+	@Autowired
+	@Qualifier(value="integerStore")
+	private Store<Integer> s2;
+
+
+	@Bean
+	public StringStore stringStore() {
+		return new StringStore();
+	}
+	@Bean
+	public IntegerStore integerStore() {
+		return new IntegerStore();
+	}
+
+	@Bean
+	public StringStore stringStoreTest(){
+		System.out.println("s1: " + s1.getClass().getName());
+		System.out.println("s2: " + s2.getClass().getName());
+		return new StringStore();
+	}
+}
+```
+
+添加测试：
+
+```
+@Test
+public void testG() {
+	Store store = super.getBean("stringStoreTest");
 }
 ```
 
