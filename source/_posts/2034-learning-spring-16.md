@@ -360,8 +360,8 @@ public class TestAOPAPI extends UnitTestBase {
 
 可以使用匿名内部 bean 来隐藏目标和代理之间的区别(推荐做法，可以避免直接使用 getBean 获取原始对象绕过代理而不会执行 advice)，上述配置修改：
 
-1. 移除： <bean id="moocThrowsAdvice" class="com.karonda.aop.api.MoocThrowsAdvice"></bean>
-1. <property name="target"> 修改为：<bean class="com.karonda.aop.api.BizLogicImpl"></bean>
+1. 移除： 	`<bean id="moocThrowsAdvice" class="com.karonda.aop.api.MoocThrowsAdvice"></bean>`
+1. `<property name="target">` 修改为：`<bean class="com.karonda.aop.api.BizLogicImpl"></bean>`
 
 ```
  	<bean id="bizLogicImpl" class="org.springframework.aop.framework.ProxyFactoryBean">
