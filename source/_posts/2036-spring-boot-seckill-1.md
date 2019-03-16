@@ -3,7 +3,7 @@ title: Spring Boot 构建电商基础秒杀项目 (一) 项目搭建
 date: 2019-03-15 17:00:00
 updated: 2019-03-15 17:00:00
 categories: [IT]
-tags: [Java, Spring Boot]
+tags: [Java, Spring Boot, Mybatis]
 ---
 
 > [SpringBoot构建电商基础秒杀项目](https://www.imooc.com/video/18390) 学习笔记
