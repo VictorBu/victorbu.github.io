@@ -39,6 +39,8 @@ void register(UserModel userModel) throws BusinessException;
             throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, "手机号码已注册");
         }
 
+        userModel.setId(userDO.getId()); // 获取自增 id
+
         UserPasswordDO userPasswordDO = convertPasswordFromModel(userModel);
         userPasswordDOMapper.insertSelective(userPasswordDO);
 
