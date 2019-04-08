@@ -22,7 +22,7 @@ URL 中都应该是名词，不应该出现动词
 
 # RestController
 
-![](https://victorblog.nos-eastchina1.126.net/1/RestController.jpg)
+![](https://victorblog.nos-eastchina1.126.net/2060/1/RestController.jpg)
 
 
 源码：[spring-boot-2-restful](https://github.com/VictorBu/spring-boot-2-restful)

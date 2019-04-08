@@ -11,16 +11,16 @@ tags: [Java, Spring Boot, RESTful API]
 
 # 程序的层次结构
 
-![](https://victorblog.nos-eastchina1.126.net/3/architecture.PNG)
+![](https://victorblog.nos-eastchina1.126.net/2060/3/architecture.PNG)
 
-![](https://victorblog.nos-eastchina1.126.net/3/pbf-pbl.PNG)
+![](https://victorblog.nos-eastchina1.126.net/2060/3/pbf-pbl.PNG)
 
 
 # 相邻层级的数据传输
 
-![](https://victorblog.nos-eastchina1.126.net/3/xo.PNG)
+![](https://victorblog.nos-eastchina1.126.net/2060/3/xo.PNG)
 
-![](https://victorblog.nos-eastchina1.126.net/3/transfer.PNG)
+![](https://victorblog.nos-eastchina1.126.net/2060/3/transfer.PNG)
 
 
 # JavaBean

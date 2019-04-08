@@ -9,7 +9,8 @@ tags: [Java, Spring Boot, RESTful API]
 > [用Spring Boot编写RESTful API](https://study.163.com/course/courseMain.htm?courseId=1005213034) 学习笔记
 
 
-![](https://victorblog.nos-eastchina1.126.net/2/BeanValidation.jpg)
+
+![](https://victorblog.nos-eastchina1.126.net/2060/2/BeanValidation.jpg)
 
 约束规则对子类依旧有效
 
