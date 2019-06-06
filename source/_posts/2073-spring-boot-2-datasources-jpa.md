@@ -200,6 +200,7 @@ public class Task {
 
 + [Configure Two DataSources](https://docs.spring.io/spring-boot/docs/2.1.4.RELEASE/reference/htmlsingle/#howto-two-datasources)
 + [spring+Jpa多数据源配置的方法示例](https://www.jb51.net/article/145486.htm)
++ [How to Configure Multiple Datasources with Spring Boot](http://www.javaoptimum.com/how-to-configure-multiple-datasources-with-spring-boot/)
 
 完整代码：[GitHub](https://github.com/VictorBu/code-snippet/tree/master/java/spring-boot-2-datasources-jpa)
 
