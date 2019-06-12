@@ -1,7 +1,7 @@
 ---
 title: Spring Cloud 学习 (一) Eureka
 date: 2019-06-11 11:20:00
-updated: 2019-11-06 11:20:00
+updated: 2019-06-12 11:20:00
 categories: [IT]
 tags: [Microservices, Spring Cloud, Eureka]
 ---
@@ -78,7 +78,7 @@ Eureka 是 Spring Cloud 首选推荐的服务注册与发现组件，可以与 S
 </build>
 ```
 
-# pom：
+## pom：
 
 ```
 <parent>
