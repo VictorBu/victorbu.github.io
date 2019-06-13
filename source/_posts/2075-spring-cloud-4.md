@@ -1,7 +1,7 @@
 ---
 title: Spring Cloud 学习 (四) Hystrix & Hystrix Dashboard & Turbine
-date: 2019-06-12 11:30:00
-updated: 2019-06-12 11:30:00
+date: 2019-06-13 11:30:00
+updated: 2019-06-13 11:30:00
 categories: [IT]
 tags: [Microservices, Spring Cloud, Hystrix, Ribbon, Feign, Hystrix Dashboard, Turbine]
 ---
@@ -297,7 +297,7 @@ public class EurekaTurbineClientApp {
 1. 访问 http://localhost:8021/hi?name=victor
 1. 访问 http://localhost:8031/hi?name=victor
 
-访问 http://localhost:8021/hystrix 或 http://localhost:8031/hystrix，然后在界面输入 http://localhost:8041/turbine.stream 点击 [Monitor Stream] 按钮可以看到 eureka-ribbon-client 和 eureka-feign-client 熔断器的各种数据指标
+访问 http://localhost:8021/hystrix 或 http://localhost:8031/hystrix 然后在界面输入 http://localhost:8041/turbine.stream 点击 [Monitor Stream] 按钮可以看到 eureka-ribbon-client 和 eureka-feign-client 熔断器的各种数据指标
 
 
 
