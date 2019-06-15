@@ -6,6 +6,11 @@ categories: [IT]
 tags: [Microservices, Spring Cloud, Spring Cloud Config]
 ---
 
+在实际开发过程中，每个服务都有大量的配置文件，例如数据库的配置、日志输出级别的配置等，而往往这些配置在不同的环境中也是不一样的。随着服务数量的增加，配置文件的管理也是一件非常复杂的事
+
+在微服务架构中，需要有统一管理配置文件的组件，例如 Spring Cloud 的 Spring Cloud Config、阿里的 Diamond、百度的 Disconf、携程的 Apollo 等
+
+
 新建 spring-cloud-config-server
 
 # 从本地读取配置
