@@ -1,5 +1,5 @@
 ---
-title: Spring Cloud 学习 (七) Spring Boot Admin
+title: Spring Cloud 学习 (八) Spring Boot Admin
 date: 2019-06-16 10:30:00
 updated: 2019-06-16 10:30:00
 categories: [IT]
