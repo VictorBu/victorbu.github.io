@@ -1,7 +1,7 @@
 ---
 title: Spring Cloud 学习 (九) Spring Security, OAuth2
-date: 2019-06-23 10:30:00
-updated: 2019-06-23 10:30:00
+date: 2019-06-22 10:30:00
+updated: 2019-06-22 10:30:00
 categories: [IT]
 tags: [Microservices, Spring Cloud, Spring Security, OAuth2]
 ---
@@ -124,7 +124,7 @@ spring:
     allow-bean-definition-overriding: true
 ```
 
-# 数据表
+## 数据表
 
 创建用户和角色及中间表：
 
