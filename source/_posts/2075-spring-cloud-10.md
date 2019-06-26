@@ -397,7 +397,6 @@ DELETE FROM user_role WHERE user_id = 2;
 | - | password | 123 |
 
 ```
-```
 {
     "jwt": {
         "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NjEyNjUyMzgsInVzZXJfbmFtZSI6ImFkbWluIiwianRpIjoiNTQxMDk3MDItNTU1Yy00NjA4LThkYzYtNzU3NWZjNGIwNGIyIiwiY2xpZW50X2lkIjoiZXVyZWthLWNsaWVudCIsInNjb3BlIjpbInNlcnZlciJdfQ.P6dtT76bFyQ6aF7-v6Vphi3ivLR0x4w739gwmBRGujaRpfDMjwQHCn5REyxEOAKdoxrVT__v73qcb78_8Ovb97L13ztnzdlPmLYzcAkQdMFz78yAjZIp2VtzxZ87Ecmk9f6-bIRlBxS9A24t0y4Tp1gkPITB1vxod0FewAHCsUJQ9WqLNeW9bxzZvy5DtlJlCCY7lOIjfDxlQdXygpwznZ4rIHv-O-eOr2aqcKMLZhdtW7hHsy2JccIUm1ZdpVQfUMD7XzWFAQoZYFLc0oXyVL0nFasOr-Ne1UR1iZYI4cS-ONVLMe78erVb-zRoyTAhEb7Pkyepkwm_Xv23U2CoeA",
@@ -419,7 +418,7 @@ DELETE FROM user_role WHERE user_id = 2;
     }
 }
 ```
-```
+
 
 ## 访问不需要权限的接口
 
