@@ -1,7 +1,7 @@
 ---
 title: Spring Boot 2 集成 Swagger
 date: 2019-06-26 10:30:00
-updated: 2019-06-26 10:30:00
+updated: 2019-07-03 10:30:00
 categories: [IT]
 tags: [Spring Boot, Swagger]
 ---
@@ -87,6 +87,23 @@ public class HiController {
 
 启动程序输入 http://localhost:8080/swagger-ui.html 即可看到效果
 
+# 注意事项
+
+如果在项目中使用了 Spring Security 则需要[添加如下配置](https://stackoverflow.com/questions/37671125/how-to-configure-spring-security-to-allow-swagger-url-to-be-accessed-without-aut)：
+
+```
+http.authorizeRequests()
+        .antMatchers(
+                // -- swagger ui
+                "/v2/api-docs",
+                "/swagger-resources",
+                "/swagger-resources/**",
+                "/configuration/ui",
+                "/configuration/security",
+                "/swagger-ui.html",
+                "/webjars/**").permitAll()
+        .anyRequest().authenticated();
+```
 
 
 
