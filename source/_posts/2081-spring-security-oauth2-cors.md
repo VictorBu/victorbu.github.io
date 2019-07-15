@@ -3,7 +3,7 @@ title: Spring Boot 中使用 Spring Security, OAuth2 跨域问题 (自己挖的�
 date: 2019-07-12 18:30:00
 updated: 2019-07-15 08:30:00
 categories: [IT]
-tags: [Spring Boot, Spring Security, OAuth2, CORS]
+tags: [Microservices, Spring Cloud, Spring Boot, Spring Security, OAuth2, CORS]
 ---
 
 

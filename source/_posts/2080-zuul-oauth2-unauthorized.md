@@ -3,7 +3,7 @@ title: 解决 Zuul 中 OAuth2 报 unauthorized 错误
 date: 2019-07-11 08:30:00
 updated: 2019-07-11 08:30:00
 categories: [IT]
-tags: [Zuul, OAuth2]
+tags: [Microservices, Spring Cloud, Zuul, OAuth2]
 ---
 
 # 问题描述
