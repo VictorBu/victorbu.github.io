@@ -1,7 +1,7 @@
 ---
 title: Spring Boot 中使用 Spring Security, OAuth2 跨域问题 (自己挖的坑)
 date: 2019-07-12 18:30:00
-updated: 2019-07-12 18:30:00
+updated: 2019-07-15 08:30:00
 categories: [IT]
 tags: [Spring Boot, Spring Security, OAuth2, CORS]
 ---
@@ -38,3 +38,28 @@ Access to XMLHttpRequest at 'http://******' from origin 'null' has been blocked 
 ```
 
 因为自己的疏忽，浪费不少时间，特此记录！
+
+# 2019/07/15 更新
+
+也可以使用全局配置，可以省略 @CrossOrigin 和 .and().cors() 配置：
+
+```
+@Configuration
+public class CorsConfig implements WebMvcConfigurer {
+ 
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        //设置允许跨域的路径
+        registry.addMapping("/**")
+                //设置允许跨域请求的域名
+                .allowedOrigins("*")
+                //这里：是否允许证书 不再默认开启
+                .allowCredentials(true)
+                //设置允许的方法
+                .allowedMethods("*")
+                //跨域允许时间
+                .maxAge(3600);
+    }
+```
+
+参考：[Spring-boot2.0 前后端分离项目 跨域问题](https://my.oschina.net/u/574036/blog/1930600)
