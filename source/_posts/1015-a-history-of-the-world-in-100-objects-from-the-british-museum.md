@@ -90,7 +90,7 @@ tags: [香港, 香港文化博物馆]
 母亲 (公元 2011 年)
 
 
-*然后画风突变，竟然带着看表情包的心情。。。*
+**然后，后来不知怎么就有种看表情包的心情。。。**
 
 ![](https://victorblog.nos-eastchina1.126.net/1015/2.jpg)
 
@@ -106,7 +106,7 @@ tags: [香港, 香港文化博物馆]
 
 ![](https://victorblog.nos-eastchina1.126.net/1015/shiva-and-parvati-sculpture.png)
 
-“来给大爷笑一个”
+“来~给大爷笑一个”
 
 ![](https://victorblog.nos-eastchina1.126.net/1015/10.jpg)
 
@@ -122,7 +122,7 @@ tags: [香港, 香港文化博物馆]
 “你居然敢打我，委屈脸”
 
 
-*部分图片来自香港文化博物馆官网*
+**部分图片来自香港文化博物馆官网**
 
 
 
