@@ -1,7 +1,7 @@
 ---
 title: 基于 MongoDB 动态字段设计的探索
 date: 2019-08-01 09:30:00
-updated: 2019-08-01 09:30:00
+updated: 2019-08-04 09:30:00
 categories: [IT]
 tags: [Spring Boot, MongoDB]
 ---
@@ -410,6 +410,22 @@ public Object del(String major, String name, Boolean updateDatabase){
     "数据结构": 80.66098
   }
 ]
+```
+
+## 3.7 修改某学生的某课程分数
+
+```
+public Object update(String name, String courseName, Float score){
+
+    Query query = Query.query(Criteria.where("name").is(name).and("courseList.name").is(courseName));
+
+    Update update = new Update();
+    update.set("courseList.$.score", score);
+
+    mongoTemplate.updateFirst(query, update, Student.class);
+
+    return null;
+}
 ```
 
 完整代码：[GitHub](https://github.com/VictorBu/code-snippet/tree/master/java/spring-boot-2-mongodb)
