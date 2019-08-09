@@ -1,7 +1,7 @@
 ---
 title: 在 CentOS 7 安装 RabbitMQ
-date: 2019-08-07 09:30:00
-updated: 2019-08-07 09:30:00
+date: 2019-08-09 09:30:00
+updated: 2019-08-09 09:30:00
 categories: [IT]
 tags: [RabbitMQ, Linux]
 ---
