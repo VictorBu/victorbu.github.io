@@ -29,5 +29,30 @@
                 <% } %>
             </div>
         <% } %>
+
+        <div class="visit">
+            <span id="timeDate">载入天数...</span><span id="timeTime">载入时分秒...</span>
+        </div>
+
+        <script>
+            var beginDate = new Date('2018/3/9 19:25:32');
+
+            function createTime(){
+                var delta = (new Date() - beginDate) / 1000;
+
+                var days = Math.floor(delta / 60 / 60 / 24);
+                var hours = Math.floor(delta / 60 / 60 - days * 24);
+                var minutes = Math.floor(delta / 60 - days * 24 * 60 - hours * 60);
+                var seconds = Math.floor(delta) % 60;
+
+                document.getElementById('timeDate').innerHTML = '本站已安全运行 ' + days + ' 天 ';
+                document.getElementById('timeTime').innerHTML = hours + ' 小时 ' + minutes + ' 分 ' + seconds + ' 秒';
+
+            }
+
+            setInterval('createTime()', 1000);
+
+        </script>
+
     </div>
 </footer>
