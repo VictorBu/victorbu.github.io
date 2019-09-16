@@ -29,7 +29,7 @@
                 <% } %>
 
                 <span>
-                    <span id="runTime">&nbsp;载入天数 时 分 秒...</span>
+                    <span id="run_time">&nbsp;载入天数 时 分 秒...</span>
                 </span>
             </div>
         <% } %>
@@ -45,7 +45,7 @@
                 var minutes = Math.floor(delta / 60 - days * 24 * 60 - hours * 60);
                 var seconds = Math.floor(delta) % 60;
 
-                document.getElementById('timeDate').innerHTML = 
+                document.getElementById('run_time').innerHTML = 
                     ' | 本站已安全运行 <span class = "run_time">' + days 
                     + '</span> 天' +  ' <span class = "run_time">' + hours 
                     + '</span> 小时 <span class = "run_time">' + minutes 
