@@ -27,11 +27,15 @@
                         </span>
                     </span>
                 <% } %>
+
+                <span>
+                    <span id="timeDate">&nbsp;载入天数...</span><span id="timeTime">载入时分秒...</span>
+                </span>
             </div>
         <% } %>
 
         <div class="visit">
-            <span id="timeDate">载入天数...</span><span id="timeTime">载入时分秒...</span>
+            
         </div>
 
         <script>
@@ -45,8 +49,11 @@
                 var minutes = Math.floor(delta / 60 - days * 24 * 60 - hours * 60);
                 var seconds = Math.floor(delta) % 60;
 
-                document.getElementById('timeDate').innerHTML = '本站已安全运行 ' + days + ' 天 ';
-                document.getElementById('timeTime').innerHTML = hours + ' 小时 ' + minutes + ' 分 ' + seconds + ' 秒';
+                document.getElementById('timeDate').innerHTML = '&nbsp;本站已安全运行 <span class = "time_time">' + days 
+                + '</span> 天 <span class = "time_time">';
+                document.getElementById('timeTime').innerHTML = hours 
+                + '</span> 小时 <span class = "time_time">' + minutes 
+                + '</span> 分 <span class = "time_time">' + seconds + '</span> 秒';
 
             }
 
