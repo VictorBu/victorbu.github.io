@@ -14,7 +14,7 @@ spring:
     client:
       username: 用户名
       password: 密码
-      serverURIs: tcp://ip:port # 客户端地址，多个使用都好隔开
+      serverURIs: tcp://ip:port # 客户端地址，多个使用逗号隔开
       clientId: client0001 # ${random.value}
       keepAliveInterval: 30
       connectionTimeout: 30
@@ -24,7 +24,7 @@ spring:
       defaultTopic: defaultTopicName
     consumer:
       defaultQos: 1
-      completionTimeout: 30
+      completionTimeout: 30000
       consumerTopics: topic1,topic2 # 监听的 topic，多个使用逗号隔开
 ```
 
@@ -161,6 +161,7 @@ public class MqttConsumer {
 	}
 	```
 1. 发布者与订阅者的 Channel 名不能相同
+1. 连接服务器的超时事件和订阅的超时时间单位不一样
 
 > 参考
 
