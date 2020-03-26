@@ -51,6 +51,17 @@ server:
 
 ## 2.3 在 Spring Cloud 中使用
 
+添加依赖：
+
+```
+<dependency>
+	<groupId>com.alibaba.cloud</groupId>
+	<artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+	<version>2.2.0.RELEASE</version>
+	<type>pom.sha256</type>
+</dependency>
+```
+
 新建 Spring Cloud 项目，在 bootstrap.yml 新增配置：
 
 ```
@@ -158,6 +169,7 @@ public class GreetingController {
 
 访问 http://localhost:8070/greeting
 
+> 参考：
 
-[Nacos支持三种部署模式](https://nacos.io/zh-cn/docs/deployment.html)
-[Nacos学习笔记(五)---- NacosConfig配置](https://blog.csdn.net/Very666/article/details/97537530)
+1. [Nacos支持三种部署模式](https://nacos.io/zh-cn/docs/deployment.html)
+1. [Nacos学习笔记(五)---- NacosConfig配置](https://blog.csdn.net/Very666/article/details/97537530)
