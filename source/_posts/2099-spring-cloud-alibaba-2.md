@@ -1,9 +1,9 @@
 ---
-title: Spring Cloud Alibaba 初体验(二) Nacos 服务注册与发现
+title: Spring Cloud Alibaba 初体验(二) Nacos 服务注册与发现 + 集成 Spring Cloud Gateway
 date: 2020-03-27 10:00:00
 updated: 2020-03-27 10:00:00
 categories: [IT]
-tags: [Spring Cloud, Alibaba, Nacos]
+tags: [Spring Cloud, Alibaba, Nacos, Spring Cloud Gateway]
 ---
 
 # 一、服务注册
@@ -74,6 +74,54 @@ public class GreetingController {
 ```
 
 访问 http://localhost:8079/greeting 可以看到与访问 http://localhost:8070/greeting 同样的结果
+
+# 三、集成 Spring Cloud Gateway
+
+新建项目 (本文使用的 Spring Cloud 的版本为 Hoxton.SR3)：
+
+```
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-gateway</artifactId>
+</dependency>
+
+<dependency>
+	<groupId>com.alibaba.cloud</groupId>
+	<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+	<version>2.2.0.RELEASE</version>
+	<type>pom.sha256</type>
+</dependency>
+```
+
+配置：
+
+```
+server:
+  port: 8081
+  
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.92.1:8848
+        namespace: e5fc372c-ad66-4e0e-a353-a217d0a315ba
+    gateway:
+      routes:
+        - id: service1
+          uri: lb://service1 # lb 代表注册中心的服务
+          predicates:
+            - Path=/service1/** # 匹配的 URL
+          filters:
+            - StripPrefix=1 # URL 去掉的前缀个数
+```
+
+访问 http://localhost:8081/service1/greeting 即可路由到 service1 的 greeting 方法
 
 > 参考：
 
