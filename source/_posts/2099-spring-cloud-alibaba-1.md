@@ -1,5 +1,5 @@
 ---
-title: Spring Cloud Alibaba 初体验之 Nacos 配置中心
+title: Spring Cloud Alibaba 初体验(一) Nacos 配置中心
 date: 2020-03-26 10:00:00
 updated: 2020-03-26 10:00:00
 categories: [IT]
