@@ -1,7 +1,7 @@
 ---
 title: Spring Cloud Alibaba 初体验(四) Sentinel
 date: 2020-03-30 17:00:00
-updated: 2020-03-30 17:00:00
+updated: 2020-04-16 23:00:00
 categories: [IT]
 tags: [Spring Cloud, Alibaba, Sentinel]
 ---
@@ -24,8 +24,6 @@ java -Dserver.port=8089 -Dcsp.sentinel.dashboard.server=localhost:8089 -jar sent
 <dependency>
 	<groupId>com.alibaba.cloud</groupId>
 	<artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-	<version>2.2.0.RELEASE</version>
-	<type>pom</type>
 </dependency>
 ```
 

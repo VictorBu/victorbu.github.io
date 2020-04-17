@@ -1,7 +1,7 @@
 ---
 title: Spring Cloud Alibaba 初体验(二) Nacos 服务注册与发现 + 集成 Spring Cloud Gateway
 date: 2020-03-27 10:00:00
-updated: 2020-03-27 10:00:00
+updated: 2020-04-16 23:00:00
 categories: [IT]
 tags: [Spring Cloud, Alibaba, Nacos, Spring Cloud Gateway]
 ---
@@ -14,8 +14,6 @@ tags: [Spring Cloud, Alibaba, Nacos, Spring Cloud Gateway]
 <dependency>
 	<groupId>com.alibaba.cloud</groupId>
 	<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-	<version>2.2.0.RELEASE</version>
-	<type>pom.sha256</type>
 </dependency>
 ```
 
@@ -92,8 +90,6 @@ public class GreetingController {
 <dependency>
 	<groupId>com.alibaba.cloud</groupId>
 	<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-	<version>2.2.0.RELEASE</version>
-	<type>pom.sha256</type>
 </dependency>
 ```
 

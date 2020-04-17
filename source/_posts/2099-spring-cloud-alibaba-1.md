@@ -1,7 +1,7 @@
 ---
 title: Spring Cloud Alibaba 初体验(一) Nacos 配置中心
 date: 2020-03-26 10:00:00
-updated: 2020-03-26 10:00:00
+updated: 2020-04-16 23:00:00
 categories: [IT]
 tags: [Spring Cloud, Alibaba, Nacos]
 ---
@@ -54,13 +54,35 @@ server:
 添加依赖：
 
 ```
-<dependency>
-	<groupId>com.alibaba.cloud</groupId>
-	<artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-	<version>2.2.0.RELEASE</version>
-	<type>pom.sha256</type>
-</dependency>
+    <dependencies>
+		...
+		
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+		
+		...
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+			...
+			
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2.2.0.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+			
+			...
+        </dependencies>
+    </dependencyManagement>
 ```
+
+spring-cloud-alibaba-dependencies 是 Spring Cloud Alibaba BOM，包含了 Spring Cloud Alibaba 的所有依赖的版本，使用 Nacos, Sentinel 等时不用再指定版本
 
 新建 Spring Cloud 项目，在 bootstrap.yml 新增配置：
 

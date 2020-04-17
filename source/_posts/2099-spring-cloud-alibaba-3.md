@@ -1,7 +1,7 @@
 ---
 title: Spring Cloud Alibaba 初体验(三) Nacos 与 Dubbo 集成
 date: 2020-03-30 11:00:00
-updated: 2020-03-30 10:00:00
+updated: 2020-04-16 23:00:00
 categories: [IT]
 tags: [Spring Cloud, Alibaba, Nacos, Dubbo]
 ---
@@ -27,8 +27,6 @@ public interface GreetingService {
 <dependency>
 	<groupId>com.alibaba.cloud</groupId>
 	<artifactId>spring-cloud-starter-dubbo</artifactId>
-	<version>2.2.0.RELEASE</version>
-	<type>pom</type>
 </dependency>
 ```
 
