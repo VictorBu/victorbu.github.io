@@ -40,7 +40,7 @@ Windows 环境下双击 bin/seata-server.bat 启动 Seata Server
 放置在 resources 目录，内容详见代码，均采用了默认配置
 
 
-### 2.2.2 yml 配置
+### 2.2.3 yml 配置
 
 ```
 spring:
@@ -65,7 +65,7 @@ service {
 no available service 'null' found, please make sure registry config correct
 ```
 
-### 2.2.3 添加数据源配置
+### 2.2.4 添加数据源配置
 
 ```
 @Configuration
@@ -91,7 +91,7 @@ public class DataSourceProxyConfig {
 
 **在2.2.0.RELEASE及以后，数据源代理自动实现了，不需要再手动去配置一个代理类**，官方文档还需要配置 DataSourceProxy 应该是文档没有及时更新
 
-### 2.2.4 添加 undo_log 表
+### 2.2.5 添加 undo_log 表
 
 在业务相关的数据库中添加 undo_log 表，用于保存需要回滚的数据
 
