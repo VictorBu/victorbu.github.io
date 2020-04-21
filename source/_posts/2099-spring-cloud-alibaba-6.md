@@ -1,9 +1,9 @@
 ---
-title: Spring Cloud Alibaba 初体验(六) Seata
+title: Spring Cloud Alibaba 初体验(六) Seata 及结合 MyBatis 与 MyBatis-Plus 的使用
 date: 2020-04-20 15:00:00
-updated: 2020-04-20 15:00:00
+updated: 2020-04-22 01:00:00
 categories: [IT]
-tags: [Spring Cloud, Alibaba, Seata]
+tags: [Spring Cloud, Alibaba, Seata, MyBatis, MyBatis-Plus]
 ---
 
 # 一、下载与运行
@@ -12,7 +12,7 @@ tags: [Spring Cloud, Alibaba, Seata]
 
 Windows 环境下双击 bin/seata-server.bat 启动 Seata Server
 
-# 二、使用
+# 二、结合 MyBatis 使用
 
 以 Service1 为例
 
@@ -135,6 +135,65 @@ public class BusinessServiceImpl implements BusinessService {
     }
 }
 ```
+
+# 三、结合 MyBatis-Plus 使用
+
+与在 MyBatis 中使用类似，区别在于数据源的配置
+
+## 3.1 **错误**配置
+
+```
+@Configuration
+public class DataSourceProxyConfig {
+
+    @Bean
+    @ConfigurationProperties(prefix = "spring.datasource")
+    public DataSource druidDataSource() {
+        DruidDataSource druidDataSource = new DruidDataSource();
+        return druidDataSource;
+    }
+
+//    @Bean
+//    public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
+//        SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
+//        factoryBean.setDataSource(dataSource);
+//        factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
+//                .getResources("classpath*:/mapper/*.xml"));
+//        return factoryBean.getObject();
+//    }
+
+    @Bean
+    @ConfigurationProperties(prefix = "mybatis-plus")
+    public MybatisSqlSessionFactoryBean sqlSessionFactoryBean(DataSource dataSource) throws IOException {
+        // 这里用 MybatisSqlSessionFactoryBean 代替了 SqlSessionFactoryBean，否则 MyBatisPlus 不会生效
+        MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean = new MybatisSqlSessionFactoryBean();
+        mybatisSqlSessionFactoryBean.setDataSource(dataSource);
+        mybatisSqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
+                .getResources("classpath*:/mapper/mapper/*.xml"));
+        return mybatisSqlSessionFactoryBean;
+    }
+}
+```
+
+上面配置是参考 [seata-samples](https://github.com/seata/seata-samples/blob/master/multiple-datasource-mybatis-plus/src/main/java/io/seata/samples/mutiple/mybatisplus/config/DataSourceProxyConfig.java) 中的配置，虽然可以正常使用，但是造成 MyBatis-Plus 的插件如分页等不生效
+
+## 3.2 正确配置
+
+```
+public class DataSourceProxyConfig {
+
+    @Bean
+    @ConfigurationProperties(prefix = "spring.datasource")
+    public DataSource druidDataSource() {
+        DruidDataSource druidDataSource = new DruidDataSource();
+        return druidDataSource;
+    }
+}
+```
+
+仅配置 DataSource 即可
+
+
 
 完整代码：[GitHub](https://github.com/VictorBu/code-snippet/tree/master/java/spring-cloud-alibaba-parent)
 
