@@ -1,7 +1,7 @@
 ---
 title: Spring Cloud 学习 (九) Spring Security, OAuth2
 date: 2019-06-22 10:30:00
-updated: 2019-06-22 10:30:00
+updated: 2020-04-24 00:00:00
 categories: [IT]
 tags: [Microservices, Spring Cloud, Spring Security, OAuth2]
 ---
@@ -366,6 +366,56 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 ```
 
 **Spring Security 5 使用 Spring Security 4 的配置会报 There is no PasswordEncoder mapped for the id "null" 异常，解决方法是使用 NoOpPasswordEncoder (临时解决方案，非最优方案)**
+
+*--- 2020-04-24 更新开始 ---*
+
+PasswordEncoder 可以使用自定义 Encoder：
+
+```
+@Bean
+public PasswordEncoder passwordEncoder() {
+	return new MyPasswordEncoder();
+}
+```
+
+MyPasswordEncoder 代码：
+
+```
+public class MyPasswordEncoder implements PasswordEncoder {
+
+    @Override
+    public String encode(CharSequence charSequence) {
+        return PasswordUtil.getencryptPassword((String)charSequence);
+    }
+
+    @Override
+    public boolean matches(CharSequence charSequence, String s) {
+        boolean result = PasswordUtil.matches(charSequence, s);
+        return result;
+    }
+}
+```
+
+PasswordUtil 代码：
+
+```
+public class PasswordUtil {
+
+    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+    public static String getencryptPassword(String password){
+        return encoder.encode(password);
+    }
+
+    public static boolean matches(CharSequence rawPassword, String encodedPassword){
+        return encoder.matches(rawPassword, encodedPassword);
+    }
+}
+```
+
+
+
+*--- 2020-04-24 更新结束 ---*
 
 ## Authorization Server 配置
 
