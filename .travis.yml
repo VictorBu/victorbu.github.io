@@ -19,7 +19,6 @@ after_script:
   - git init
   - git config user.name "VictorBu"
   - git config user.email "victorbu.xx@gmail.com"
-  - echo "victor.karonda.com" > CNAME
   - git add .
   - git commit -m "add/edit"
   - git push --force --quiet "https://${github_token}@${GH_REF}" master:master
