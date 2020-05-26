@@ -117,6 +117,24 @@ spring:
             - StripPrefix=1 # URL 去掉的前缀个数
 ```
 
+*--- 2020-05-26 更新开始 ---*
+
+Spring Cloud Gateway 跨域设置
+
+```
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedHeaders: '*'
+            allowedOrigins: '*'
+            allowedMethods: '*'
+```
+
+*--- 2020-05-26 更新结束 ---*
+
 访问 http://localhost:8081/service1/greeting 即可路由到 service1 的 greeting 方法
 
 > 参考：
