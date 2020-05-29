@@ -6,6 +6,8 @@ categories: [IT]
 tags: [Java, MQTT, Spring Boot]
 ---
 
+** 本文代码有些许问题，处理方案见：[解决 spring-integration-mqtt 频繁报 Lost connection 错误](https://www.cnblogs.com/victorbu/p/12986000.html)**
+
 # 一、添加配置
 
 ```
