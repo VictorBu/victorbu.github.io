@@ -169,6 +169,8 @@ head -n 1 weblog-sample.log | nc localhost 9900
 
 通过 grok 使用正则表达式将非结构化的数据转换为结构化的数据
 
+Kibana 自带了 grok 调试工具，可以在 Dev Tools 中 Grok Debugger 调试
+
 ## 3.2 geoip
 
 ```
