@@ -137,7 +137,16 @@ output {
 }
 ```
 
-%{COMBINEDAPACHELOG} 是 Logstash 自带的匹配模式，读入 weblog-sample.log 的第一行数据：
+%{COMBINEDAPACHELOG} 是 Logstash 自带的匹配模式，表达式为：
+
+```
+%{IPORHOST:clientip} %{USER:ident} %{USER:auth} 
+\[%{HTTPDATE:timestamp}\] "(?:%{WORD:verb} %{NOTSPACE:request}
+(?: HTTP/%{NUMBER:httpversion})?|%{DATA:rawrequest})" %{NUMBER:response} 
+(?:%{NUMBER:bytes}|-) %{QS:referrer} %{QS:agent}
+```
+
+读入 weblog-sample.log 的第一行数据：
 
 ```
 head -n 1 weblog-sample.log | nc localhost 9900
