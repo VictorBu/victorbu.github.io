@@ -1,7 +1,7 @@
 ---
 title: Spring Boot 2 集成 Swagger
 date: 2019-06-26 10:30:00
-updated: 2019-07-03 10:30:00
+updated: 2020-06-10 10:30:00
 categories: [IT]
 tags: [Spring Boot, Swagger]
 ---
@@ -108,4 +108,34 @@ http.authorizeRequests()
 
 
 完整代码：[GitHub](https://github.com/VictorBu/code-snippet/tree/master/java/spring-boot-swagger)
+
+*--- 2020-06-10 更新开始 ---*
+
+最近使用中发现会报错：
+
+```
+No mapping for GET /swagger-ui.html
+```
+
+应该是 Spring Boot 版本问题，修复：
+
+```
+@Configuration
+public class WebMvcConfig extends WebMvcConfigurationSupport {
+
+    @Override
+    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("swagger-ui.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
+
+        registry.addResourceHandler("/webjars/**")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+        super.addResourceHandlers(registry);
+    }
+}
+```
+
+参考：[swagger报错No handler found for GET /swagger-ui.html](https://www.cnblogs.com/guanghe/p/10238990.html)
+
+*--- 2020-06-10 更新结束 ---*
 
