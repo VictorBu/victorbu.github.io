@@ -68,3 +68,11 @@ public class TestRunner implements CommandLineRunner {
 > 注意
 
 为了防止加密盐泄露反解出密码，可以在项目启动的时候通过参数传入加密盐的值；或者在服务器的环境变量里配置加密盐
+
+*--- 2020-06-11 更新开始 ---*
+
+也可以使用 jasypt-maven-plugin 加密解密
+
+[【Jasypt】给你的配置加把锁](https://www.jianshu.com/p/efa8c063a915)
+
+*--- 2020-06-11 更新结束 ---*
