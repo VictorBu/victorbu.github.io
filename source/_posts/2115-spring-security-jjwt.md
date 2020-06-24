@@ -73,6 +73,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 其中 EntryPointUnauthorizedHandler 和 RestAccessDeniedHandler 是未认证或未授权异常处理，详细代码可以看源码
 
+# 三、获取当前登录用户
+
+```
+public class CurrentUserUtil {
+
+    public static UserInfoModel getUserInfo() {
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(authentication != null) {
+            if(authentication instanceof UsernamePasswordAuthenticationToken) {
+                return (UserInfoModel)authentication.getPrincipal();
+            }
+        }
+
+        return null;
+    }
+}
+```
+
 测试代码见 TestController，测试时在请求 Header 中添加 Authorization 即可
 
 
