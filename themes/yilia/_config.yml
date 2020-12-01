@@ -17,7 +17,7 @@ subnav:
   #rss: "#"
   #zhihu: "#"
   #qq: "#"
-  weixin: "img/wechatadd.jpg"
+  weixin: "/img/wechatadd.jpg"
   #jianshu: "#"
   #douban: "#"
   #segmentfault: "#"
@@ -71,10 +71,10 @@ top: true
 # Miscellaneous
 baidu_analytics: ''
 google_analytics: ''
-favicon: img/favicon.ico
+favicon: "/img/favicon.ico"
 
 #你的头像url
-avatar: /img/head.png
+avatar: "/img/head.png"
 
 #是否开启分享
 share_jia: true
