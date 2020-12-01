@@ -1,24 +1,30 @@
 # Header
 
 menu:
-  主页: /
-  随笔: /tags/随笔/
+#  主页: /
+#  随笔: /tags/随笔/
+  首页: /
+  旅行: /categories/旅行/
+  户外: /categories/户外/
+  读书: /categories/读书/
+  急救: /categories/急救/
+  挨踢: /categories/IT/
 
 # SubNav
 subnav:
-  github: "#"
-  weibo: "#"
-  rss: "#"
-  zhihu: "#"
+  github: "https://github.com/victorbu"
+  #weibo: "#"
+  #rss: "#"
+  #zhihu: "#"
   #qq: "#"
-  #weixin: "#"
+  weixin: "img/wechatadd.jpg"
   #jianshu: "#"
   #douban: "#"
   #segmentfault: "#"
   #bilibili: "#"
   #acfun: "#"
-  #mail: "mailto:litten225@qq.com"
-  #facebook: "#"
+  mail: "mailto:victorbu.xx@gmail.com"
+  facebook: "https://www.facebook.com/victorbu.xx"
   #google: "#"
   #twitter: "#"
   #linkedin: "#"
@@ -47,9 +53,9 @@ reward_type: 2
 # 打赏wording
 reward_wording: '谢谢你请我吃糖果'
 # 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/assets/img/alipay.jpg
-alipay: 
+alipay: "img/alipayimg.jpg"
 # 微信二维码图片地址
-weixin: 
+weixin: "img/wechatimg.jpg"
 
 # 目录
 # 目录设定：0-不显示目录； 1-文章对应的md文件里有toc:true属性，才有目录； 2-所有文章均显示目录
@@ -65,10 +71,10 @@ top: true
 # Miscellaneous
 baidu_analytics: ''
 google_analytics: ''
-favicon: /favicon.png
+favicon: img/favicon.ico
 
 #你的头像url
-avatar:
+avatar: img/head.png
 
 #是否开启分享
 share_jia: true
