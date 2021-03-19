@@ -25,7 +25,7 @@ tags: [Alibaba, Alibaba Cloud, Spring Cloud, Kubernetes, Nacos]
 
 ## 1.1. 初始化数据库
 
-下载 (Nacos 1.3.0)[https://github.com/alibaba/nacos/releases/download/1.3.0/nacos-server-1.3.0.zip]，然后在数据库执行 conf/nacos-mysql.sql 初始化数据库
+下载 [Nacos 1.3.0](https://github.com/alibaba/nacos/releases/download/1.3.0/nacos-server-1.3.0.zip) ，然后在数据库执行 conf/nacos-mysql.sql 初始化数据库
 
 ## 1.2. 部署 Nacos
 
