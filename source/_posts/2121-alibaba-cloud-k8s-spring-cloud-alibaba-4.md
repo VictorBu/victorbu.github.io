@@ -1,9 +1,9 @@
 ---
 title: 阿里云 k8s 部署 Spring Cloud Alibaba 微服务实践 (四) 自动化部署
 date: 2021-03-30 10:00:00
-updated: 2021-03-30 10:00:00
+updated: 2021-05-08 19:00:00
 categories: [IT]
-tags: [Alibaba, Alibaba Cloud, Kubernetes, Jenkins, JDK, Maven, Git, Docker]
+tags: [Alibaba, Alibaba Cloud, Kubernetes, Jenkins, JDK, Maven, Git, Docker, Node.js]
 ---
 
 本文使用操作系统为 CentOS 7，Jenkins 版本为 2.277.1
@@ -169,7 +169,8 @@ docker build -t registry.cn-shenzhen.aliyuncs.com/YOUR_NAMESPACE/$JOB_BASE_NAME:
 docker push registry.cn-shenzhen.aliyuncs.com/YOUR_NAMESPACE/$JOB_BASE_NAME:latest
 
 # 4.升级
-kubectl set image deployment $JOB_BASE_NAME $JOB_BASE_NAME=registry.cn-shenzhen.aliyuncs.com/YOUR_NAMESPACE/$JOB_BASE_NAME:latest
+##kubectl set image deployment $JOB_BASE_NAME $JOB_BASE_NAME=registry.cn-shenzhen.aliyuncs.com/YOUR_NAMESPACE/$JOB_BASE_NAME:latest
+/usr/local/bin/kubectl rollout restart deployment $JOB_BASE_NAME ## 2021/05/08
 ```
 
 ## 2.2. 通过 tag 标签部署（适用于生产环境）
@@ -215,4 +216,60 @@ fi
 
 # 4.升级
 kubectl set image deployment $JOB_BASE_NAME $JOB_BASE_NAME=registry.cn-shenzhen.aliyuncs.com/YOUR_NAMESPACE/$JOB_BASE_NAME:$TAG
+```
+
+*以下内容 2021/05/08 更新*
+
+## 2.3. 部署前端(Vue.js)项目（常规部署）
+
+如果没有 Node.js 则需安装 Node.js 和 cnpm ：
+
+```
+cd /usr/local/
+tar -xvf node-v14.16.1-linux-x64.tar.xz
+mv node-v14.16.1-linux-x64/ nodejs
+
+ln -s /usr/local/nodejs/bin/npm /usr/bin/npm
+ln -s /usr/local/nodejs/bin/node /usr/bin/node
+
+npm install cnpm -g --registry=https://registry.npm.taobao.org
+```
+
+部署脚本：
+
+```
+## 1.打包项目
+/usr/local/nodejs/bin/cnpm i
+/usr/local/nodejs/bin/npm run build
+
+## 2.添加 docker 相关文件
+targetDir="/var/project/$JOB_BASE_NAME"
+if [ ! -d "$targetDir" ]; then
+        mkdir $targetDir
+fi
+
+rm -rf $targetDir/*
+cp -f /var/project/Dockerfile $targetDir/
+cp -rf dist $targetDir/dist
+
+## 如果是公众号项目需要拷贝公众号的 txt 文件
+## cp /var/project/XXXXXXXXX.txt  $targetDir/dist/XXXXXXXXX.txt
+
+cd $targetDir
+
+# 3.构建镜像、推送
+docker build -t registry.cn-shenzhen.aliyuncs.com/YOUR_NAMESPACE/$JOB_BASE_NAME:latest .
+docker push registry.cn-shenzhen.aliyuncs.com/YOUR_NAMESPACE/$JOB_BASE_NAME:latest
+
+# 4.升级
+/usr/local/bin/kubectl rollout restart deployment $JOB_BASE_NAME
+```
+
+其中 Dockerfile 内容：
+
+```
+FROM nginx:alpine
+MAINTAINER VictorBu <VictorBu.xx@gmail.com>
+
+ADD dist /usr/share/nginx/html
 ```
