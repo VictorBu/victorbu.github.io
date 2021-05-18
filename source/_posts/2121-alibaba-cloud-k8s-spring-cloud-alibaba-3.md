@@ -1,7 +1,7 @@
 ---
 title: 阿里云 k8s 部署 Spring Cloud Alibaba 微服务实践 (三) 服务观测
 date: 2021-03-22 15:00:00
-updated: 2021-05-18 15:00:00
+updated: 2021-05-18 09:00:00
 categories: [IT]
 tags: [Alibaba, Alibaba Cloud, Spring Cloud, Kubernetes, Prometheus, Grafana]
 ---
