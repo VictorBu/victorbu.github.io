@@ -1,7 +1,7 @@
 ---
 title: 阿里云 k8s 部署 Spring Cloud Alibaba 微服务实践 (三) 服务观测
 date: 2021-03-22 15:00:00
-updated: 2021-03-22 15:00:00
+updated: 2021-05-18 15:00:00
 categories: [IT]
 tags: [Alibaba, Alibaba Cloud, Spring Cloud, Kubernetes, Prometheus, Grafana]
 ---
@@ -35,6 +35,12 @@ tags: [Alibaba, Alibaba Cloud, Spring Cloud, Kubernetes, Prometheus, Grafana]
 在“运维管理”中的“Prometheus 监控”点击右上角的“在新页面打开”即可打开 Grafana 页面：在 “+” 点击 “Import”，在 “Import via grafana.com” 下面的输入框，输入 4701，然后点击”Load”按钮：
 
 ![](https://victorblog.nos-eastchina1.126.net/2121/3/grafana.png)
+
+*以下内容 2021/05/18 更新*
+
+阿里云日志服务默认不支持中文搜索，需要手动开启：
+
+“日志服务”-“选中对应的 Project”-“选中对应的 logstore”-右上角“查询分析属性”-“属性”-开启“包含中文”
 
 
 
