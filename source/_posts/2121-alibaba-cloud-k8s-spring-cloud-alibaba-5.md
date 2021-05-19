@@ -1,7 +1,7 @@
 ---
 title: 阿里云 k8s 部署 Spring Cloud Alibaba 微服务实践 (五) Kubernetes TCP Ingress
 date: 2021-05-18 10:00:00
-updated: 2021-05-08 10:00:00
+updated: 2021-05-18 10:00:00
 categories: [IT]
 tags: [Alibaba, Alibaba Cloud, Kubernetes]
 ---
