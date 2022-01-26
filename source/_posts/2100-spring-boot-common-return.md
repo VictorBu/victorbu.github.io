@@ -14,67 +14,52 @@ tags: [Spring Boot]
 ## 1.1 通用的返回对象
 
 ```
-public class CommonReturn {
+public class CommonResult<T> {
     private Integer code;
     private String msg;
-    private Object data;
+    private T data;
 
-    private CommonReturn(CommonResult commonResult) {
-        this.code = commonResult.getCode();
-        this.msg = commonResult.getMsg();
+    private CommonResult(ResultEnum resultEnum) {
+        this.code = resultEnum.getCode();
+        this.msg = resultEnum.getMsg();
     }
 
-    public static CommonReturn success(Object obj) {
-        CommonReturn commonReturn = new CommonReturn(ResultEnum.SUCCESS);
-        commonReturn.data = obj;
-        return commonReturn;
+    public static CommonResult success(Object obj) {
+        CommonResult commonResult = new CommonResult(ResultEnum.SUCCESS);
+        commonResult.data = obj;
+        return commonResult;
     }
 
-    public static CommonReturn error(CommonResult commonResult) {
-        CommonReturn commonReturn = new CommonReturn(commonResult);
-        return commonReturn;
+    public static CommonResult error(ResultEnum resultEnum) {
+        CommonResult commonResult = new CommonResult(resultEnum);
+        return commonResult;
     }
 
-    public static CommonReturn error(CommonResult commonResult, String msg) {
-        CommonReturn commonReturn = new CommonReturn(commonResult);
-        commonReturn.msg = msg;
-        return commonReturn;
+    public static CommonResult error(ResultEnum resultEnum, String msg) {
+        CommonResult commonResult = new CommonResult(resultEnum);
+        commonResult.msg = msg;
+        return commonResult;
     }
-
 
     public Integer getCode() {
-        return code;
+        return this.code;
     }
 
     public String getMsg() {
-        return msg;
+        return this.msg;
     }
 
-    public Object getData() {
-        return data;
+    public T getData() {
+        return this.data;
     }
 }
 ```
 
-## 1.2 返回接口
-
-```
-public interface CommonResult {
-
-    Integer getCode();
-
-    String getMsg();
-
-    void setMsg(String msg);
-
-}
-```
-
-## 1.3 返回枚举
+## 1.2 异常枚举
 
 
 ```
-public enum ResultEnum implements CommonResult {
+public enum ResultEnum {
 
     SUCCESS(0, "成功。"),
 
@@ -91,55 +76,35 @@ public enum ResultEnum implements CommonResult {
         this.msg = msg;
     }
 
-    @Override
     public Integer getCode() {
         return code;
     }
 
-    @Override
     public String getMsg() {
         return msg;
-    }
-
-    @Override
-    public void setMsg(String msg) {
-        this.msg = msg;
     }
 }
 ```
 
-## 1.4 自定义异常
+## 1.3 自定义异常
 
 ```
-public class BusinessException extends Exception implements CommonResult {
+public class BusinessException extends RuntimeException {
 
     private CommonResult commonResult;
 
-    public BusinessException(CommonResult commonResult) {
+    public BusinessException(ResultEnum resultEnum) {
         super();
-        this.commonResult = commonResult;
+        this.commonResult = CommonResult.error(resultEnum);
     }
 
-    public BusinessException(CommonResult commonResult, String msg) {
+    public BusinessException(ResultEnum resultEnum, String msg) {
         super();
-        this.commonResult = commonResult;
-        this.setMsg(msg);
+        this.commonResult = CommonResult.error(resultEnum, msg);
     }
 
-
-    @Override
-    public Integer getCode() {
-        return this.commonResult.getCode();
-    }
-
-    @Override
-    public String getMsg() {
-        return this.commonResult.getMsg();
-    }
-
-    @Override
-    public void setMsg(String msg) {
-        this.commonResult.setMsg(msg);
+    public CommonResult getCommonReturn() {
+        return commonResult;
     }
 }
 ```
@@ -161,7 +126,7 @@ public class BusinessExceptionHandler {
             errMsgBuilder.append(fieldError.getDefaultMessage());
         });
 
-        return CommonReturn.error(ResultEnum.PARAM_ERROR, errMsgBuilder.toString());
+        return CommonResult.error(ResultEnum.PARAM_ERROR, errMsgBuilder.toString());
     }
 
     /**
@@ -169,12 +134,12 @@ public class BusinessExceptionHandler {
      */
     @ExceptionHandler(BusinessException.class)
     public Object handleBusinessException(BusinessException ex){
-        return CommonReturn.error(ex);
+        return ex.getCommonReturn();
     }
 
     @ExceptionHandler(Exception.class)
     public Object handleException(Exception ex){
-        return CommonReturn.error(ResultEnum.UNKNOWN_ERROR, ex.getMessage());
+        return CommonResult.error(ResultEnum.UNKNOWN_ERROR, ex.getMessage());
     }
 }
 ```
@@ -201,12 +166,12 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
         }
 
         if(body == null) {
-            return CommonReturn.success(null);
-        } else if(body instanceof CommonReturn) {
+            return CommonResult.success(null);
+        } else if(body instanceof CommonResult) {
             return body;
         }
 
-        return CommonReturn.success(body);
+        return CommonResult.success(body);
     }
 }
 ```
@@ -223,7 +188,7 @@ public class TestController {
     }
 
     @RequestMapping("/exception")
-    public void exception() throws BusinessException {
+    public void exception() {
         throw new BusinessException(ResultEnum.PARAM_ERROR);
     }
 
