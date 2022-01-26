@@ -252,4 +252,6 @@ public class TestController {
 }
 ```
 
+注：如果返回类型为 String 需特殊处理，见：[SpringBoot 统一返回处理遇到的问题 cannot be cast to java.lang.String](https://www.jianshu.com/p/0f16c9f1760e)
+
 > 同时可以使用 RequestBodyAdvice 统一处理入参，但是不支持 GET 方法
