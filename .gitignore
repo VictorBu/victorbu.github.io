@@ -5,6 +5,7 @@
 db.json
 /img
 /public
+
 # Logs
 logs
 *.log
